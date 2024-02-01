@@ -1,1 +1,1 @@
-# dsa-practice in c++
+# dsa-practice in C++
