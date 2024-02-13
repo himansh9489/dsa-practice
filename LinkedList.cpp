@@ -83,7 +83,7 @@ Node *deleteTail(Node *head)
     current->next = nullptr;
     return head;
 }
-Node *deleteKthNode(Node *head, int k)
+Node *deleteKthElement(Node *head, int k)
 {
     if (head == nullptr)
         return head;
@@ -215,9 +215,9 @@ int main()
     // cout << checkIfPresent(head, 2) << endl;
     // display(deleteHead(head));
     // display(deleteTail(head));
-    // display(deleteKthNode(head, 3));
+    // display(deleteKthElement(head, 3));
     // display(deleteElemnt(head, 8));
-    head = insertPosition(head, 1, 6);
+    head = insertPosition(head, 2, 6);
     display(head);
     head = insertPosition(head, 6, 100);
     display(head);
