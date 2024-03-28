@@ -1,22 +1,62 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct Node
+void generatePermutationsHelper(int index, int N, string &current, vector<string> &result)
 {
-    int data;
-    Node *next;
-    Node(int data1, Node *next1)
+    string s1 = "11";
+    if (index == N)
     {
-        data = data1;
-        next = next1;
+        if (current.find("11") == string::npos)
+            result.push_back(current); // Add the current permutation to the result
+        return;
     }
-    Node(int data1)
-    {
-        data = data1;
-        next = nullptr;
-    }
-};
+
+    // Generate permutations by setting the current character to '0' or '1'
+    current[index] = '0';
+    generatePermutationsHelper(index + 1, N, current, result);
+
+    current[index] = '1';
+    generatePermutationsHelper(index + 1, N, current, result);
+}
+
+vector<string> generatePermutations(int N)
+{
+    vector<string> result;
+    string current(N, '0'); // Initialize a string of length N with all '0' characters
+    generatePermutationsHelper(0, N, current, result);
+    return result;
+
+    unordered_map<int, string> mp;
+}
 
 int main()
 {
+    int N = 3; // Example value of N
+    vector<string> permutations = generatePermutations(N);
+
+    // Print all permutations
+    for (const auto &perm : permutations)
+    {
+        // if (perm.find("11") == string::npos)
+        cout << perm << endl;
+    }
+    return 0;
+    // #include <bits/stdc++.h>
 }
+
+// int main()
+// {
+//     double a = 0.123456;
+//     double b = 0.987654;
+
+//     double result = a * b;
+
+//     // Set precision to 6 decimal places
+//     cout << fixed << setprecision(6) << result << endl;
+//     if (result < 1e-6)
+//         std::cout << result << std::endl;
+//     else
+//         std::cout << "Result exceeds 10^-6" << std::endl;
+
+//     return 0;
+// }
